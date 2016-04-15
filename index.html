@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZeroECS</title>       
+</head>
+
+<body style='background: #888888; margin: 0; padding: 0; width: 100%; height: 100%;'>
+   
+    <canvas id="display" style="width:800px; height: 600px; background: black;" width="800" height="600"></canvas>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/game_updater.js"></script>
+    <script src="assets/js/typechecking.js"></script>
+
+    <script src="assets/js/engine/util.js"></script>
+    <script src="assets/js/engine/system.js"></script>
+    <script src="assets/js/engine/ecs.js"></script>
+    <script src="assets/js/engine/aspect.js"></script>
+    <script src="assets/js/engine/component_manager.js"></script>
+    <script src="assets/js/engine/prefab_manager.js"></script>
+    <script src="assets/js/engine/fsm.js"></script>
+    <script src="assets/js/engine/test.js"></script>
+
+    <script src="assets/js/systems_initialization.js"></script>
+	
+    <script src="assets/js/dep/box2d_231.min.js"></script>
+    <script src="assets/js/dep/box2d_util.js"></script>
+    
+    <script src="assets/js/systems/input/input_system.js"></script>
+    <script src="assets/js/systems/collision/sat.js"></script>
+    <!--<script src="assets/js/systems/collision/collision_detection_system.js"></script>
+    <script src="assets/js/systems/collision/collision_resolving_system.js"></script>
+    <script src="assets/js/systems/physics_system.js"></script>-->
+    <script src="assets/js/systems/box2d_physics.js"></script>
+    <script src="assets/js/systems/canvas_2d_rendering_system.js"></script>
+    <script src="assets/js/systems/gravity_system.js"></script>
+    <script src="assets/js/systems/ground_tracking_system.js"></script>
+    <script src="assets/js/systems/movement_system.js"></script>
+    <script src="assets/js/systems/jumping_system.js"></script>
+    <script src="assets/js/systems/block_pushing_system.js"></script>
+    <script src="assets/js/systems/collectible_system.js"></script>
+    <script src="assets/js/game.coroutines.js"></script>
+    <script src="assets/js/platformer_game.js"></script>
+</body>
+
+</html>
