@@ -117,20 +117,25 @@ prefabs.add('Coin', {
 });
 
 //////////////////////////////////////////
-var cam = prefabs.create('Camera', {
-    Camera2d: {
-        viewSize: {x: 40.0, y: 30.0}
-    },
-    Transform2d: {
-        pos: {x: 0, y: 0}
-    }
-});
-
 var dwarf = prefabs.create('Dwarf', {
 	Transform2d: {
 		pos: {x: -1.01, y: 20.0}
-	}
+	},
+    Camera2d: {
+        viewSize: {x: 40.0, y: 30.0},
+        target: dwarf
+    }
 });
+
+/*var cam = prefabs.create('Camera', {
+    Camera2d: {
+        viewSize: {x: 40.0, y: 30.0},
+        target: dwarf
+    },
+    Transform2d: {
+        pos: {x: 0, y: 0}
+    },
+});*/
 
 var platform = prefabs.create('Platform', {
 	Transform2d: {
@@ -218,4 +223,4 @@ var game = new GameUpdater(30, 60, {
 
 setTimeout(function() {
     game.start();
-}, 2000);
+}, 0);

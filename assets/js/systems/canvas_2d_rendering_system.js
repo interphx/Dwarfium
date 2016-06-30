@@ -43,7 +43,11 @@ var Canvas2dRenderingSystem = System.extend('Canvas2dRenderingSystem',
                 
                 render_target.scale(1, -1);
                 render_target.scale(PTM_X, PTM_Y);
-                render_target.translate(-camera_transform.worldPos().x + camera_data.viewSize.x/2, -camera_transform.worldPos().y - camera_data.viewSize.y/2);
+
+                render_target.translate(
+                    -camera_transform.worldPos().x + camera_data.viewSize.x/2,
+                    -camera_transform.worldPos().y - camera_data.viewSize.y/2
+                );
                 
                 render_target.lineWidth /= PTM_AVG;
                 
