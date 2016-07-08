@@ -13,6 +13,19 @@ Object.prototype.valueOf = function() {
   return this.originalValueOf();
 }
 
+function loadLevel(json, prefab_factory) {
+    var data = JSON.parse(json);
+    for (var i = 0; i < data.length; ++i) {
+        var item = data[i];
+        var prefab_name = data[i][0];
+        var prefab_data = data[i][1];
+        console.log(prefab_name, prefab_data);
+        prefab_factory.create(prefab_name, prefab_data);
+    }
+}
+
+
+
 var input = new KeyboardInputSystem();
 
 var ecs = new ECS([
@@ -68,7 +81,10 @@ prefabs.add('Dwarf', {
             y: -1
         }
     },
-    Collector: {}
+    Collector: {},
+    Camera2d: {
+        viewSize: {x: 40.0, y: 30.0}
+    }
 });
 
 prefabs.add('Platform', {
@@ -117,25 +133,15 @@ prefabs.add('Coin', {
 });
 
 //////////////////////////////////////////
-var dwarf = prefabs.create('Dwarf', {
+
+loadLevel('[["StoneBlock", {"Transform2d": {"pos": {"x": 12.200000000000001, "y": -7.25}}, "RigidBody": {"size": {"x": 3.25, "y": 4.25}}, "SimpleGraphics": {"size": {"x": 3.25, "y": 4.25}}}], ["Dwarf", {"Transform2d": {"pos": {"x": 5.65, "y": -6.2}}}], ["Platform", {"Transform2d": {"pos": {"x": 23.0, "y": -9.5}}, "RigidBody": {"size": {"x": 12.0, "y": 2.1999999999999993}}, "SimpleGraphics": {"size": {"x": 12.0, "y": 2.1999999999999993}}}], ["Platform", {"Transform2d": {"pos": {"x": 3.45, "y": -9.55}}, "RigidBody": {"size": {"x": 12.0, "y": 2.2}}, "SimpleGraphics": {"size": {"x": 12.0, "y": 2.2}}}], ["Platform", {"Transform2d": {"pos": {"x": 23.450000000000003, "y": -24.25}}, "RigidBody": {"size": {"x": 12.5, "y": 5.0}}, "SimpleGraphics": {"size": {"x": 12.5, "y": 5.0}}}], ["Platform", {"Transform2d": {"pos": {"x": 2.3000000000000003, "y": -24.6}}, "RigidBody": {"size": {"x": 12.65, "y": 2.6999999999999993}}, "SimpleGraphics": {"size": {"x": 12.65, "y": 2.6999999999999993}}}], ["Platform", {"Transform2d": {"pos": {"x": 12.55, "y": -27.25}}, "RigidBody": {"size": {"x": 13.150000000000002, "y": 2.5}}, "SimpleGraphics": {"size": {"x": 13.150000000000002, "y": 2.5}}}]]', prefabs);
+
+/*var dwarf = prefabs.create('Dwarf', {
 	Transform2d: {
 		pos: {x: -1.01, y: 20.0}
-	},
-    Camera2d: {
-        viewSize: {x: 40.0, y: 30.0},
-        target: dwarf
-    }
+	}
 });
 
-/*var cam = prefabs.create('Camera', {
-    Camera2d: {
-        viewSize: {x: 40.0, y: 30.0},
-        target: dwarf
-    },
-    Transform2d: {
-        pos: {x: 0, y: 0}
-    },
-});*/
 
 var platform = prefabs.create('Platform', {
 	Transform2d: {
@@ -165,7 +171,7 @@ var platform2 = prefabs.create('Platform', {
         size: {y: 5}
     }
 });
-
+*/
 /*
 for (var i = 0; i < 5; ++i) {
     prefabs.create('Coin', {
@@ -184,13 +190,13 @@ for (var i = 0; i < 5; ++i) {
         }
     });
 }*/
-
+/*
 var testPushableBody = prefabs.create('StoneBlock', {
     Transform2d: {
         pos: {x: 7, y: 4}
     }
 });
-
+*/
 
 
 /*****************************************************************************/
